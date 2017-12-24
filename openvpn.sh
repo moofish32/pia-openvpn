@@ -2,14 +2,12 @@
 set -e -u -o pipefail
 
 
-if [ -n "$REGION" ]; then
-  set -- "$@" '--config' "${REGION}.ovpn"
+if [ -n "$CONFIG" ]; then
+  set -- "$@" '--config' "${CONFIG}"
 fi
 
-if [ -n "$USERNAME" -a -n "$PASSWORD" ]; then
-  echo "$USERNAME" > auth.conf
-  echo "$PASSWORD" >> auth.conf
-  set -- "$@" '--auth-user-pass' 'auth.conf'
+if [ ! -f /pia/auth.conf ]; then 
+  echo "[FATAL] Auth file not mounted to /pia/auth.conf"
 fi
-
+set -- "$@" '--auth-user-pass' 'auth.conf'
 openvpn "$@"
