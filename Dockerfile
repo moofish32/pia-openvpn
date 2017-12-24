@@ -1,5 +1,5 @@
 FROM alpine:latest
-MAINTAINER Colin Hebert <hebert.colin@gmail.com>
+MAINTAINER Mike Cowgill <moofish32@gmail.com>
 
 ENV CONFIG 'US California.ovpn'
 RUN apk add --no-cache openvpn wget zip
