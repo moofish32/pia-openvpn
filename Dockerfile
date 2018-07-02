@@ -2,6 +2,7 @@ FROM alpine:latest
 MAINTAINER Mike Cowgill <moofish32@gmail.com>
 
 ENV CONFIG 'US California.ovpn'
+
 RUN apk add --no-cache openvpn wget zip
 RUN mkdir /pia \
   && cd /pia \
