@@ -1,7 +1,6 @@
 #!/bin/sh
 set -e -u -o pipefail
 
-
 if [ -n "$CONFIG" ]; then
   set -- "$@" '--config' "${CONFIG}"
 fi
